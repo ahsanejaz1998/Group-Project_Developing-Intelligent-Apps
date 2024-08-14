@@ -35,6 +35,6 @@ def predict():
     sentiment = 'Positive' if prediction > 0.5 else 'Negative'
 
     return jsonify({'text': text, 'prediction': sentiment})
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
